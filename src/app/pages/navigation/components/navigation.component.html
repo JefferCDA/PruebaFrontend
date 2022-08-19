@@ -1,0 +1,103 @@
+<div class="main-container">
+  <div class="header">
+    <div class="main-logo">
+      <img [src]="imgLogo" alt="" />
+    </div>
+    <div class="main-title">
+      <span class="icon material-symbols-outlined"> arrow_back_ios </span>
+      <span class="title">Ventas</span>
+    </div>
+  </div>
+  <div class="body">
+    <div class="menu-desplegable">
+      <div class="crop-image">
+        <img [src]="imgList" alt="" />
+      </div>
+
+      <button class="item-list" routerLink="/home" routerLinkActive="active">
+        <span class="material-symbols-outlined"> house </span>Home
+      </button>
+
+      <button
+        class="item-list"
+        routerLink="/clientes"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined"> group </span>Clientes
+      </button>
+
+      <button [ngClass]="{'btn-active': view, 'item-list': !view}"  routerLink="/ventas" (click)="openView()" >
+        <span class="material-symbols-outlined"> shopping_basket</span>
+        Ventas
+      </button>
+
+      <button class="item-list" routerLink="/compras" routerLinkActive="active">
+        <span class="material-symbols-outlined"> shopping_bag </span>Compras
+      </button>
+
+      <button class="item-list" routerLink="/caja" routerLinkActive="active">
+        <span class="material-symbols-outlined"> point_of_sale </span>Caja
+      </button>
+
+      <button
+        class="item-list"
+        routerLink="/inventario"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined"> storage </span>Inventario
+      </button>
+
+      <button
+        class="item-list"
+        routerLink="/products"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined"> bookmark </span>Productos
+      </button>
+
+      <button
+        class="item-list"
+        routerLink="/reportes"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined"> summarize </span>Reportes
+      </button>
+
+      <button class="btn-sell">
+        CERRAR CAJA
+      </button>
+    </div>
+    <div class="container-content">
+      <div class="search" *ngIf="view">
+        <input type="search" placeholder="Buscar Producto" />
+      </div>
+      <div class="router">
+        <router-outlet> </router-outlet>
+      </div>
+    </div>
+    <div class="rightlist" *ngIf="view">
+      <div class="container-right">
+        <div class="right-logo">
+          <span class="icon material-symbols-outlined"> shopping_cart </span>
+          <p>Carrito de <br> compras</p>
+        </div>
+        <div class="container-total">
+          <p>Total</p>
+          <p class="total">${{ totalSell }}</p>
+        </div>
+      </div>
+
+      <div class="container-shop-item">
+        <div *ngFor="let product of productsSelected">
+          {{product[0]}} {{product[1]}}
+        </div>
+
+      </div>
+
+      <div class="action-sell">
+        <input type="text" placeholder="Celular" />
+        <button class="btn-sell" (click)="openModalSell()" >Vender</button>
+      </div>
+    </div>
+  </div>
+</div>

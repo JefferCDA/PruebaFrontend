@@ -1,0 +1,27 @@
+<div class="container">
+  <div mat-card-title class="title">
+    Método de pago
+  </div>
+  <div mat-dialog-subtitle >
+    Elija el metodo de pago de tu cliente
+  </div>
+  <div mat-dialog-content class="container-content">
+    <div class="actions"></div>
+    <div background="black">
+      <button class="btn-icon" (click)="activesell()" >
+        <span class="material-symbols-outlined"> payments </span>
+      </button>
+      <h2>Efectivo</h2>
+    </div>
+    <div>
+      <button  class="btn-icon" (click)="activesell()">
+        <span class="material-symbols-outlined"> wallet </span>
+      </button>
+      <h2>Movi</h2>
+    </div>
+  </div>
+
+  <div mat-actions>
+    <button [ngClass]="{'btn-sell': sellActive, 'btn-disabled': !sellActive}" [mat-dialog-close]="true" [disabled]="!sellActive">Vender</button>
+  </div>
+</div>

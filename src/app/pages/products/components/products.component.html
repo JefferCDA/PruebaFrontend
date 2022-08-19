@@ -1,0 +1,36 @@
+<button (click)="verArray()">ver array</button>
+<div class="product-grid">
+  <div *ngFor="let product of products, index as i " >
+    <mat-card class="container-card">
+      <div class="container-product">
+        <div class="crop-image">
+          <img [src]="product.imgUrl" alt="" />
+        </div>
+
+        <mat-card-content>
+          <h3>
+            {{ product.name }}
+          </h3>
+        </mat-card-content>
+      </div>
+
+      <mat-card-actions>
+        <div class="container-actions">
+          <button
+            mat-raised-button
+            class="buttons"
+            (click)="subtractproduct(i)"
+          >
+            -
+          </button>
+          <div class="counter">
+            <h3>{{ product.cant }}</h3>
+          </div>
+          <button mat-raised-button class="button" (click)="addproduct(i)">
+            +
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
