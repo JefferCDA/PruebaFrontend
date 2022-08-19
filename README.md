@@ -1,8 +1,8 @@
 # PruebaFrontend
 
 #Ejecución
- 1- npm i
- 2- ng serve
+ #1- npm i
+ #2- ng serve
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
